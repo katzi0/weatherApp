@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>weather app</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+
+
+</head>
+
+<body>
+<!--<div class="container">-->
+<!--cities list class-->
+    <div class="header">
+        <h2 class="title">this is the header</h2>
+        <label>choose a city</label>
+        <select id="ddCities">
+            <option value="Madrid">Madrid</option>
+            <option value="London">London</option>
+            <option value="Tel Aviv">Tel Aviv</option>
+            <option>Paris</option>
+            <option>Rome</option>
+            <option>Moscow</option>
+            <option>Manchester</option>
+            <option>Barcelona</option>
+            <option>Napoli</option>
+            <option>New York</option>
+        </select>
+    </div>
+<!--end cities list class-->
+
+<!--location basic information class-->
+<div class="location-basic-information">
+    <div>
+        <span id="selected-city">selected city:</span>
+        <label id="lbl-selected-city"></label>
+    </div>
+    <div>
+        <span id="humidity">humidity:1</span>
+        <label id="lbl-humidity"></label>
+    </div>
+   <div>
+       <span id="temperature">temperature:</span>
+       <label id="lbl-temperature">1</label>
+   </div>
+   <div>
+       <span id="rain">rain:</span>
+       <label id="lbl-rain">1</label>
+   </div>
+  <div>
+      <span id="clouds">clouds:</span>
+      <label id="lbl-clouds">1</label>
+  </div>
+</div>
+<!--end location basic information class-->
+
+<!--map element-->
+<div id="mapid"></div>
+<div id="mapidtwo"></div>
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+<Script src="scripts/services/geoLocationAPI.js"></Script>
+<script src="scripts/classes/weather/weather.js"></script>
+<script src="scripts/classes/city/city.js"></script>
+<script src="scripts/map.js"></script>
+<script src="scripts/main.js"></script>
+
+</body>
+
+</html>
