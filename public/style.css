@@ -1,5 +1,5 @@
 body{
-    background-color: red;
+    background-color: #e3e6ea;
     margin:0 auto;
     padding: 0;
 }
@@ -8,10 +8,10 @@ body{
     top:0px;
     width:100%;
     height:14rem;
-    color:white;
     position:absolute;
     text-align:center;
-    background-color:black;
+    color:black
+    /*background-color:black;*/
 }
 .header .title {
     line-height:51px;
@@ -22,21 +22,35 @@ body{
     top:14rem;
     width:100%;
     height:14rem;
-    background-color: aqua;
+    /*background-color: aqua;*/
     position:absolute;
+    text-align: center;
 }
 
 #mapid {
     height:31rem;
     top:28rem;
     position: absolute;
-    width:50%;
+    width:100%;
 }
-#mapidtwo {
-    height:31rem;
-    top:28rem;
-    left:50%;
-    position: absolute;
-    width:50%;
-    background-color: aqua;
+/*#mapidtwo {*/
+    /*height:31rem;*/
+    /*top:28rem;*/
+    /*left:50%;*/
+    /*position: absolute;*/
+    /*width:50%;*/
+    /*background-color: aqua;*/
+/*}*/
+
+.weather-panel {
+    width: 15rem;
+    height:8rem;
+    display: inline-block;
+    border: 2px solid #eee;
+    margin: auto;
+    border-radius: 20px;
+}
+.weather-panel span,.weather-panel label {
+    font-size: 20px;
+    display: block;
 }

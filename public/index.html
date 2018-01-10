@@ -4,7 +4,7 @@
     <title>weather app</title>
 
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
 
@@ -15,7 +15,7 @@
 <!--<div class="container">-->
 <!--cities list class-->
     <div class="header">
-        <h2 class="title">this is the header</h2>
+        <h2 class="title">weatherApp</h2>
         <label>choose a city</label>
         <select id="ddCities">
             <option value="Madrid">Madrid</option>
@@ -34,25 +34,30 @@
 
 <!--location basic information class-->
 <div class="location-basic-information">
-    <div>
-        <span id="selected-city">selected city:</span>
-        <label id="lbl-selected-city"></label>
+    <div class="weather-panel">
+        <i class="fa fa-globe fa-2x" aria-hidden="true"></i>
+        <span id="selected-city">City</span>
+        <label id="lbl-selected-city">&nbsp;</label>
     </div>
-    <div>
-        <span id="humidity">humidity:1</span>
-        <label id="lbl-humidity"></label>
+    <div class="weather-panel">
+        <i class="fa fa-sun-o fa-2x" aria-hidden="true"></i>
+        <span id="humidity">Humidity</span>
+        <label id="lbl-humidity">&nbsp;</label>
     </div>
-   <div>
-       <span id="temperature">temperature:</span>
-       <label id="lbl-temperature">1</label>
+   <div class="weather-panel">
+       <i class="fa fa-thermometer-empty fa-2x" aria-hidden="true"></i>
+       <span id="temperature">Temperature</span>
+       <label id="lbl-temperature">&nbsp;</label>
    </div>
-   <div>
-       <span id="rain">rain:</span>
-       <label id="lbl-rain">1</label>
+   <div class="weather-panel">
+       <i class="fa fa-tint fa-2x" aria-hidden="true"></i>
+       <span id="rain">Rain</span>
+       <label id="lbl-rain">&nbsp;</label>
    </div>
-  <div>
-      <span id="clouds">clouds:</span>
-      <label id="lbl-clouds">1</label>
+  <div class="weather-panel">
+      <i class="fa fa-cloud fa-2x" aria-hidden="true"></i>
+      <span id="clouds">Clouds%</span>
+      <label id="lbl-clouds">&nbsp;</label>
   </div>
 </div>
 <!--end location basic information class-->
