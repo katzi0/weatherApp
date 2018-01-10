@@ -5,9 +5,9 @@ let citiesArr = ["Madrid","London","Tel Aviv","Paris","Rome","Moscow","Mancheste
 let citiesCoordinatesArr = [];
 let singleCityMap = {name:"",lng:"",lat:""};
 let mymap;
-
+let markupGroup;
 citiesCoordinatesArr = [
-    {name:"Madrid",lng:"-3.7037901999999576lat",lat:"40.4167754",isSelected:false},
+    {name:"Madrid",lng:"-3.7037901999999576l",lat:"40.4167754",isSelected:false},
     {name:"London",lng:"-0.12775829999998223",lat:"51.5073509",isSelected:false},
     {name:"Tel Aviv",lng:"34.78176759999997",lat:"32.0852999",isSelected:false},
     {name:"Paris ",lng:"2.3522219000000177",lat:"48.856614",isSelected:false},
@@ -31,20 +31,33 @@ function initMapObject(){
 
 
 function setAllMarkers(){
-         citiesCoordinatesArr.forEach(city => marker = L.marker([ parseFloat(city.lat),parseFloat(city.lng)]).addTo(mymap));
+    markupGroup  = L.layerGroup().addTo(mymap);
+    citiesCoordinatesArr.forEach(city => {marker = L.marker([ parseFloat(city.lat),parseFloat(city.lng)]).addTo(markupGroup),
+        city.id = marker._leaflet_id;
+        // console.log("markerID:"+marker._leaflet_id)    // city.id =
+    });
 }
 
 function markSelectedCity(cityName){
-    citiesCoordinatesArr.forEach(city => city.isSelected = false);
-    let index = citiesCoordinatesArr.findIndex(city => city.name.trim() == cityName.trim());
-    // let selectdCity = citiesCoordinatesArr.find(city => city.name == cityName);
-    // selectedCity.isSelected = true;
-    citiesCoordinatesArr[index].isSelected = true;
-    console.log(citiesCoordinatesArr);
-    mymap.flyTo([citiesCoordinatesArr[index].lat, citiesCoordinatesArr[index].lng], 13);
-    L.marker([citiesCoordinatesArr[index].lat, citiesCoordinatesArr[index].lng],{icon: greenIcon}).addTo(mymap);
-    L.marker([citiesCoordinatesArr[index].lat, citiesCoordinatesArr[index].lng],{icon: greenIcon}).addTo(mymap);
+    //change prev selected marked
+    let prevMarker = citiesCoordinatesArr.find(x => x.isSelected == true);
+    if(prevMarker != undefined)
+    {
+        markupGroup.removeLayer(prevMarker.id);
+        marker = L.marker([parseFloat(prevMarker.lat), parseFloat(prevMarker.lng)]);
+        markupGroup.addLayer(marker);
+        prevMarker.id = marker._leaflet_id;
+    }
 
+    let selectedMarker =  citiesCoordinatesArr.find(x => x.name.trim() == cityName.trim());
+    markupGroup.removeLayer(selectedMarker.id);
+    let index = citiesCoordinatesArr.findIndex(city => city.name.trim() == cityName.trim());
+    citiesCoordinatesArr[index].isSelected = true;
+    marker = L.marker([parseFloat(citiesCoordinatesArr[index].lat), parseFloat(citiesCoordinatesArr[index].lng)],{icon: greenIcon}).addTo(markupGroup);
+    // markupGroup.addLayer(L.marker([parseFloat(citiesCoordinatesArr[index].lat), parseFloat(citiesCoordinatesArr[index].lng)],{icon: greenIcon}));
+    selectedMarker.id = marker._leaflet_id;
+    mymap.flyTo([parseFloat(citiesCoordinatesArr[index].lat), parseFloat(citiesCoordinatesArr[index].lng)], 13);
+    console.log(citiesCoordinatesArr);
 }
 
 
